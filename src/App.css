@@ -68,3 +68,90 @@
 .googleSignin{
   margin-top: 30px;
 }
+
+.products{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 2rem;
+}
+
+.product{
+  width: 33.33%;
+  float: left;
+  padding: 0 10px;
+  margin: 0;
+  height: 25rem;
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+.thumb img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.details{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.details ul li{
+  display: block;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  float: left;
+}
+
+.details ul li a{
+  color: black;
+}
+
+.name{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.price{
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.productCard{
+  max-width: 60%;
+  margin: 0 auto 10.0rem;
+}
+
+.image{
+  display: block;
+  width: 100%;
+  margin: 2rem auto;
+}
+.image img{
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.productDeatils ul, ul li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.productDeatils ul li {
+  list-style: none;
+  margin: 0 auto 1rem;
+}
+
+.addToCartIn {
+  max-width: 20%;
+  margin: 0 auto 2rem;
+}

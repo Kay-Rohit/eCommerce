@@ -17,6 +17,9 @@ function Header(props) {
             <div>
                 <Link to="/">Header</Link>
             </div>
+            <div>
+                <Link to="/items">Shop</Link>
+            </div>
             <div className="callToActions">
                 {!currentUser && (
                     <div>

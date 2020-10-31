@@ -17,6 +17,7 @@ import Homepage from '../src/pages/homepage';
 import Item from '../src/pages/items';
 import Cart from '../src/pages/cart';
 import SignIn from '../src/pages/signin';
+import ProductDeatils from '../src/pages/productDetails';
 
 const App = props => {
 
@@ -53,6 +54,11 @@ const App = props => {
           <Route path="/items" render={() => (
               <Mainlayout>
                 <Item />
+              </Mainlayout>
+          )} />
+          <Route path="/product/:productID" render={() => (
+              <Mainlayout>
+                <ProductDeatils />
               </Mainlayout>
           )} />
           <Route path="/cart" render={() => (

@@ -34,13 +34,13 @@ const ProductResults = ({}) => {
                 Brows Products
             </h2>
             {products.map((product, pos) => {
-                const {name, Price} = product;
+                const {thumb, name, Price} = product;
 
-                if(!name || typeof Price === 'undefined') return null;
+                if(!thumb || !name || typeof Price === 'undefined') return null;
 
                 const configProduct = {
-                    name,
-                    Price
+                    ...product,
+                    pos
                 };
 
                 return(
