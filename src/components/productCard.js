@@ -5,6 +5,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {addProduct} from '../redux/cart/cart.actions';
 import {fetchProdStart, setProd} from '../redux/product/product.actions';
 import Button from '../components/form/button';
+import {useHistory} from 'react-router-dom';
+
+import WithAuth from '../hoc/withAuth';
 
 const mapState = state => ({
     product: state.productsData.product
@@ -14,6 +17,8 @@ const ProductCard = ({}) =>  {
     const dispatch = useDispatch();
     const {productID} = useParams();
     const {product} = useSelector(mapState);
+
+    const history = useHistory();
 
     const{
         name,
@@ -40,6 +45,7 @@ const ProductCard = ({}) =>  {
         dispatch(
             addProduct(product)
         );
+        history.push('/cart');
     }
 
     const configAddToCartBtn = {

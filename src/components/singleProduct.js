@@ -4,9 +4,13 @@ import Button from '../components/form/button';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {addProduct} from '../redux/cart/cart.actions';
+import {useHistory} from 'react-router-dom';
+
+import WithAuth from '../hoc/withAuth';
 
 const Product = (product) => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const {
         documentID,
         thumb,
@@ -25,6 +29,7 @@ const Product = (product) => {
         dispatch(
             addProduct(product)
         );
+        history.push('/cart');
     }
 
     return (

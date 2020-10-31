@@ -155,3 +155,23 @@
   max-width: 20%;
   margin: 0 auto 2rem;
 }
+
+.cart{
+  max-width: 80%;
+  margin: 0 auto;
+}
+.cartHeader {
+  border-bottom: 1px solid black;
+}
+.cart {
+  width: 100%;
+  text-align: left;
+}
+
+.cartItem td img{
+  display: block;
+  width: 30%;
+}
+.removeBtn{
+  cursor: pointer;
+}

@@ -33,7 +33,7 @@ const Header = props => {
                         </ul>
                         <ul>
                             <li>
-                                <Link to="/cart" >Cart ({totalCartItems})</Link>
+                                <Link to="/cart" >Cart <br />(Sign in to add to cart)</Link>
                             </li>
                         </ul>
                     </div>
@@ -48,7 +48,7 @@ const Header = props => {
                         </ul>
                         <ul>
                             <li>
-                                <Link to="/cart" >Cart</Link>
+                                <Link to="/cart" >Cart ({totalCartItems})</Link>
                             </li>
                         </ul>
                     </>
