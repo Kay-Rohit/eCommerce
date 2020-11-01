@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {fetchCartItemStart, deleteCartItemsStart} from '../redux/myCart/myCart.actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {Table} from 'reactstrap';
+import {useHistory} from 'react-router-dom';
 
 import Button from '../components/form/button';
 
@@ -12,6 +13,7 @@ const mapState = ({myCartData}) => ({
 const MyyCart = () => {
     const {cartItems} = useSelector(mapState);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(
@@ -35,6 +37,7 @@ const MyyCart = () => {
                     </tr>
                 </thead>
                 {cartItems.length > 0 ? (
+                    <>
                     <tbody>
                         {cartItems.map((cartItem, index) => {
                                 const {
@@ -56,10 +59,16 @@ const MyyCart = () => {
                                 );
                         })}
                     </tbody>
+                    </>
                 ) : (
                     <h2>OOPS !! Nothing to show in cart.</h2>
                 )}
             </Table>
+            {cartItems.length > 0 ? (
+                <div className="continueBtn">
+                    <Button onClick={() => history.goBack()} >CONTINUE SHOPPING</Button>
+                </div>
+            ):null}
         </div>
     );
 }

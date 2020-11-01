@@ -38,22 +38,6 @@ const ProductCard = ({}) =>  {
 
     }, []);
 
-    const handleAddToCart = (product) => {
-        if(!product) return;
-        dispatch(
-            addCartItemStart({
-                thumb,
-                name,
-                Price
-            })
-        );
-        history.push('/mycart');
-    }
-
-    const configAddToCartBtn = {
-        type: 'button'
-    }
-
     return (
         <div className="productCard">
             <div className="image">
@@ -71,7 +55,7 @@ const ProductCard = ({}) =>  {
                     </li>
                     <li>
                         <div className="addToCartIn">
-                            <Button {...configAddToCartBtn} onClick={() => handleAddToCart(product)} >ADD TO CART</Button>
+                            <Button onClick={() => history.goBack()} >CONTINUE SHOPPING</Button>
                         </div>
                     </li>
                     <li>

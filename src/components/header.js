@@ -42,7 +42,7 @@ const Header = props => {
                                         <NavLink className="nav-link"  to='/mycart'>MY-CART</NavLink>
                                     </NavItem>
                                     <NavItem style={{marginTop:'5%'}}>
-                                        <span onClick={() => auth.signOut()}>SIGN-OUT</span>
+                                        <span onClick={() => auth.signOut()} style={{cursor:'pointer'}}>SIGN-OUT</span>
                                     </NavItem>
                                     </>
                                 )}
