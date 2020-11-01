@@ -30,7 +30,7 @@ const ProductResults = ({}) => {
 
     return (
         <div className="products">
-            <h2>
+            <h2 style={{marginBottom:'5%'}}>
                 Brows Products
             </h2>
             {products.map((product, pos) => {

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {fetchCartItemStart, deleteCartItemsStart} from '../redux/myCart/myCart.actions';
 import {useDispatch, useSelector} from 'react-redux';
+import {Table} from 'reactstrap';
 
 import Button from '../components/form/button';
 
@@ -23,56 +24,44 @@ const MyyCart = () => {
 
     return (
         <div className="myCart">
-
-            <table border="0" cellPadding="0" cellSpacing="0">
-                <tbody>
+            <h2><b>Manage cart</b></h2>
+            <Table striped>
+                <thead>
                     <tr>
-                        <th>
-                            <h1>
-                                Manage Cart
-                            </h1>
-                        </th>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Remove</th>
                     </tr>
-                    <tr>
-                        <td>
-                            {cartItems.length > 0 ? (<table border="0" cellPadding="10" cellSpacing="0">
-                                <tbody>
-                                    {cartItems.map((cartItem, index) => {
-                                        const {
-                                            name, 
-                                            Price,
-                                            thumb
-                                        } = cartItem;
-                                        return(
-                                            <tr key={index}>
-                                                <td>
-                                                    <img className="thumb" src={thumb} alt={name} />
-                                                </td>
-                                                <td>
-                                                    {name}
-                                                </td>
-                                                <td>
-                                                    Rs. {Price}
-                                                </td>
-                                                <td>
-                                                    <Button onClick={() => dispatch(deleteCartItemsStart(name))}>
-                                                        REMOVE
-                                                    </Button>
-                                                </td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>) : (
-                                <p>No items in your cart</p>
-                            )}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
+                </thead>
+                {cartItems.length > 0 ? (
+                    <tbody>
+                        {cartItems.map((cartItem, index) => {
+                                const {
+                                    name, 
+                                    Price,
+                                    thumb
+                                } = cartItem;
+                                return(
+                                    <tr key={index}>
+                                        <th scope="row" className="thumb"><img src={thumb} alt={name} /></th>
+                                        <td>{name}</td>
+                                        <td>{Price}</td>
+                                        <td>
+                                            <Button onClick={() => dispatch(deleteCartItemsStart(name))}>
+                                                REMOVE
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                );
+                        })}
+                    </tbody>
+                ) : (
+                    <h2>OOPS !! Nothing to show in cart.</h2>
+                )}
+            </Table>
         </div>
-    )
+    );
 }
 
 export default MyyCart;
