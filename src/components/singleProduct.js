@@ -3,10 +3,9 @@ import '../App.css';
 import Button from '../components/form/button';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {addProduct} from '../redux/cart/cart.actions';
+import {addCartItemStart} from '../redux/myCart/myCart.actions';
 import {useHistory} from 'react-router-dom';
 
-import WithAuth from '../hoc/withAuth';
 
 const Product = (product) => {
     const dispatch = useDispatch();
@@ -24,13 +23,17 @@ const Product = (product) => {
         type: 'button'
     };
 
-    const handleAddToCart = (product) => {
-        if(!product) return;
+    const handleAddToMyCart = (product) => {
         dispatch(
-            addProduct(product)
+            addCartItemStart({
+                documentID,
+                thumb,
+                name,
+                Price
+            })
         );
-        history.push('/cart');
-    }
+        history.push('/mycart');
+    };
 
     return (
         <div className="product">
@@ -53,7 +56,7 @@ const Product = (product) => {
                     </li>
                     <li>
                         <div className="addToCart">
-                        <Button {...configAddToCart} onClick={() => handleAddToCart(product)}>
+                        <Button {...configAddToCart} onClick={() => handleAddToMyCart(product)}>
                             ADD TO CART
                         </Button>
                         </div>

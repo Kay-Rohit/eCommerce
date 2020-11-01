@@ -2,12 +2,10 @@ import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {addProduct} from '../redux/cart/cart.actions';
+import {addCartItemStart} from '../redux/myCart/myCart.actions';
 import {fetchProdStart, setProd} from '../redux/product/product.actions';
 import Button from '../components/form/button';
 import {useHistory} from 'react-router-dom';
-
-import WithAuth from '../hoc/withAuth';
 
 const mapState = state => ({
     product: state.productsData.product
@@ -40,12 +38,16 @@ const ProductCard = ({}) =>  {
 
     }, []);
 
-    const handleAddToCart = product => {
+    const handleAddToCart = (product) => {
         if(!product) return;
         dispatch(
-            addProduct(product)
+            addCartItemStart({
+                thumb,
+                name,
+                Price
+            })
         );
-        history.push('/cart');
+        history.push('/mycart');
     }
 
     const configAddToCartBtn = {

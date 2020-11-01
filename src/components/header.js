@@ -4,16 +4,15 @@ import {auth} from '../firebase/utils';
 
 import {useSelector} from 'react-redux';
 
-import {selectcartItemsCount} from '../redux/cart/cart.selectors';
-
 const mapState = (state) => ({
     currentUser: state.user.currentUser,
-    totalCartItems: selectcartItemsCount(state)
 });
 
 const Header = props => {
 
-    const {currentUser, totalCartItems} = useSelector(mapState);
+    const {currentUser} = useSelector(mapState);
+
+    //console.log('Current User : ', currentUser.id);
 
     return (
         <div className="header">
@@ -33,7 +32,7 @@ const Header = props => {
                         </ul>
                         <ul>
                             <li>
-                                <Link to="/cart" >Cart <br />(Sign in to add to cart)</Link>
+                                <Link to="/mycart" >Cart <br />(Sign in to add to cart)</Link>
                             </li>
                         </ul>
                     </div>
@@ -48,7 +47,7 @@ const Header = props => {
                         </ul>
                         <ul>
                             <li>
-                                <Link to="/cart" >Cart ({totalCartItems})</Link>
+                                <Link to="/mycart" >My Cart</Link>
                             </li>
                         </ul>
                     </>

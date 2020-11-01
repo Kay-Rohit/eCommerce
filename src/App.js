@@ -15,9 +15,9 @@ import HomeLayout from '../src/layouts/homelayout';
 //pages
 import Homepage from '../src/pages/homepage';
 import Item from '../src/pages/items';
-import Cart from '../src/pages/cart';
 import SignIn from '../src/pages/signin';
 import ProductDeatils from '../src/pages/productDetails';
+import MyCart from '../src/pages/myCart';
 
 const App = props => {
 
@@ -61,13 +61,12 @@ const App = props => {
                 <ProductDeatils />
               </Mainlayout>
           )} />
-          <Route path="/cart" render={() => (
+          <Route path="/mycart" render={() => (
             <WithAuth>
               <Mainlayout>
-                <Cart />
+                <MyCart />
               </Mainlayout>
             </WithAuth>
-            
           )} />
           <Route path="/signin" 
             render = {() => currentUser ? <Redirect to="/" /> : (
