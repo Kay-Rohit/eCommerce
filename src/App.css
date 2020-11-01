@@ -9,6 +9,19 @@
   background-repeat: no-repeat;
 
 }
+nav ul li a{
+  text-decoration: none; 
+  color: black;
+}
+.header{
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 70px;
+}
+.nav-area{
+  list-style: none;
+  padding: 0 15px;
+}
 .directory .item a{
   position: absolute;
   top: 50%;
@@ -40,21 +53,6 @@
   right: 10px;
 }
 
-.callToActions ul li{
-  list-style-type: none;
-  text-transform: capitalize;
-  display: inline-block;
-  margin-right: 15px;
-  cursor: pointer;
-  background: white;
-  font-weight: bolder;
-  cursor: pointer;
-}
-.callToActions ul li a{
-  text-decoration: none;
-  color: black;
-
-}
 .footer{
   padding: 20px 10px;
 }

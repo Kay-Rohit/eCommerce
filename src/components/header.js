@@ -1,5 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import {
+    Navbar,
+    NavbarBrand,
+    Nav,
+    NavItem
+  } from 'reactstrap';
+
 import {auth} from '../firebase/utils';
 
 import {useSelector} from 'react-redux';
@@ -15,45 +22,45 @@ const Header = props => {
     //console.log('Current User : ', currentUser.id);
 
     return (
-        <div className="header">
-            <div>
-                <Link to="/">Header</Link>
-            </div>
-            <div>
-                <Link to="/items">Shop</Link>
-            </div>
-            <div className="callToActions">
-                {!currentUser && (
-                    <div>
-                        <ul>
-                            <li>
-                                <Link to="/signin">SignIn</Link>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <Link to="/mycart" >Cart <br />(Sign in to add to cart)</Link>
-                            </li>
-                        </ul>
+        <div>
+            <Navbar light expand="md">
+                    <div className="container">
+                        
+                        <NavbarBrand className="mr-auto" href="/">eCommerce</NavbarBrand>
+                            <Nav navbar>
+                            <NavItem>
+                                <NavLink className="nav-link"  to='/'>HOME</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to='/items'>SHOP NOW</NavLink>
+                            </NavItem>
+                            </Nav>
+                            <Nav className="ml-auto" navbar>
+                                {currentUser && (
+                                    <>
+                                    <NavItem>
+                                        <NavLink className="nav-link"  to='/mycart'>MY-CART</NavLink>
+                                    </NavItem>
+                                    <NavItem style={{marginTop:'5%'}}>
+                                        <span onClick={() => auth.signOut()}>SIGN-OUT</span>
+                                    </NavItem>
+                                    </>
+                                )}
+                                {!currentUser && (
+                                    <>
+                                    <NavItem>
+                                        <NavLink className="nav-link"  to='/mycart'>CART</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="nav-link" to='/signin'>SIGN-IN</NavLink>
+                                    </NavItem>
+                                    </>
+                                )}
+                            </Nav>
+
                     </div>
-                )}
-                <ul>
-                    {currentUser && (
-                    <>
-                        <ul>
-                            <li>
-                                <span onClick={() => auth.signOut()} >Logout</span>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <Link to="/mycart" >My Cart</Link>
-                            </li>
-                        </ul>
-                    </>
-                )}
-                </ul>
-            </div>
+                </Navbar>
+            
         </div>
     );
 };
